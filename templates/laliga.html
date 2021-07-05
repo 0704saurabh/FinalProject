@@ -1,0 +1,104 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <style>
+            body{
+                background: url("https://firebasestorage.googleapis.com/v0/b/predict-meter.appspot.com/o/images%2Ffc%2Fbg.jpg?alt=media&token=7ce8a869-f2ba-4ca6-9e05-238fb40cf2ef") no-repeat center fixed;
+                background-size:1920px 1080px;
+            }
+        </style>
+        <link rel="stylesheet" href="https://firebasestorage.googleapis.com/v0/b/predict-meter.appspot.com/o/css%2Fbootstrap.min.css?alt=media&token=6892f846-8b33-403a-acdf-cec41d300d47">
+    <link rel="stylesheet" href="https://firebasestorage.googleapis.com/v0/b/predict-meter.appspot.com/o/css%2Fstyle.css?alt=media&token=86b1b53c-11a3-40d0-9186-c51013a19995">
+    
+    </head>
+
+<body>
+    <header class="breadcrumb">
+        <h3>La Liga Prediction</h3>
+    </header>
+
+    
+        {% if home_goal %}
+        <div class="row d-flex justify-content-center">
+            <div class="col-md-3 d-flex justify-content-center">
+                <img src="https://firebasestorage.googleapis.com/v0/b/predict-meter.appspot.com/o/images%2Ffc%2F{{home}}.jpg?alt=media&token={{home_token}}" height="300px" width="250px">
+            </div>
+            <div class="col-md-3 mt-5 mb-5 d-flex justify-content-center">
+                <div class="btn btn-lg btn-info">
+                    <div><h1>{{home_goal}}
+                    V
+                    {{away_goal}}</h1></div>
+                </div>
+            </div>
+            <div class="col-md-3 d-flex justify-content-center">
+                <img src="https://firebasestorage.googleapis.com/v0/b/predict-meter.appspot.com/o/images%2Ffc%2F{{away}}.jpg?alt=media&token={{away_token}}" height="300px" width="250px">
+            </div>
+        </div>
+        <div class="container-row">
+            <div class="d-flex justify-content-center">
+                <input type=button class="btn btn-secondary" value="Back To Predict" onClick="javascript:history.go(-1);">
+            </div>
+            <div class="d-flex justify-content-center mt-3">
+                <a href="home"><button type="button" class="btn">Home</button></a>
+            </div>
+        </div>
+        {% else %}
+        <div class="container d-flex justify-content-center">
+        <div>
+        <form action="predict" method="POST" class="center-align">
+        {% csrf_token %}
+        <div class="form-row d-flex justify-content-center">
+        <div class="col-5.5 form-group">
+          <select id="inputState" class="form-control" name="HomeTeam">
+            <option selected>Home Team Name</option>
+            <option>Alaves</option> <option>Ath Bilbao</option> <option>Ath Madrid</option> 
+            <option>Barcelona</option> 
+            <option>Celta</option> <option>Eibar</option> <option>Espanol</option> <option>Getafe</option>
+            <option>Granada</option> <option>Leganes</option> <option>Levante</option> <option>Mallorca</option>
+            <option>Osasuna</option> <option value="Betis">Real Betis</option>
+            <option>Real Madrid</option> <option>Sevilla</option> <option>Sociedad</option>
+            <option>Valencia</option> <option>Valladolid</option> <option>Villareal</option> 
+          </select>
+        </div>
+          <span class="badge badge-fill"><h4>V</h4></span>
+        <div class="col-5.5 form-group d-flex justify-content-center">
+          <select id="inputState" class="form-control" name="AwayTeam">
+            <option selected>Away Team Name</option>
+            <option>Alaves</option> <option>Ath Bilbao</option> <option>Ath Madrid</option> 
+            <option>Barcelona</option> 
+            <option>Celta</option> <option>Eibar</option> <option>Espanol</option> <option>Getafe</option>
+            <option>Granada</option> <option>Leganes</option> <option>Levante</option> <option>Mallorca</option>
+            <option>Osasuna</option> <option value="Betis">Real Betis</option>
+            <option>Real Madrid</option> <option>Sevilla</option> <option>Sociedad</option>
+            <option>Valencia</option> <option>Valladolid</option> <option>Villareal</option>
+          </select>
+        </div>
+        </div>
+        <div class="form-row d-flex justify-content-center">
+                <input type="number" name="HTHG" placeholder="HT Home score">
+        </div>
+        <div class="form-row d-flex justify-content-center">
+                <input type="number" name="HTAG" placeholder="HT Away score">
+        </div>
+        <div class="d-flex justify-content-center">
+            <button type="submit" class="btn btn-secondary">Predict Final Score</button>
+        </div>
+        <div class="d-flex justify-content-center mt-2">
+            <button type="submit" class="btn"><a href="home">Home</a></button>
+        </div>
+        {% for message in messages %}
+        <div class="d-flex justify-content-center mt-2">
+            <span class="badge badge-fill badge-danger"><h5>{{message}}</h5></span>
+        </div>
+        {% endfor %}
+    </form>
+    </div>
+    {% endif %}
+    
+
+    </div>
+</body>
+ 
+</html>

@@ -1,0 +1,107 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        {% block title %}<title>{{name}}</title>{% endblock %}
+        <style>
+            body{
+                background: url("https://firebasestorage.googleapis.com/v0/b/predict-meter.appspot.com/o/images%2Fipl%2Finn1_icon.jpg?alt=media&token=964713a4-97df-4d93-bb51-f729ca656ac1") no-repeat center fixed;
+                background-size:1377px 720px;
+            }
+        </style>
+        <link rel="stylesheet" href="https://firebasestorage.googleapis.com/v0/b/predict-meter.appspot.com/o/css%2Fbootstrap.min.css?alt=media&token=6892f846-8b33-403a-acdf-cec41d300d47">
+    <link rel="stylesheet" href="https://firebasestorage.googleapis.com/v0/b/predict-meter.appspot.com/o/css%2Fstyle.css?alt=media&token=86b1b53c-11a3-40d0-9186-c51013a19995">
+    </head>
+
+<body>
+    <header class="breadcrumb">
+        <h3>IPL Prediction</h3>
+    </header>
+
+    
+        {% if total1 %}
+        <div class="row d-flex justify-content-center">
+            <div class="col-md-3 col-xs-8 d-flex justify-content-center">
+            <img src="https://firebasestorage.googleapis.com/v0/b/predict-meter.appspot.com/o/images%2Fipl%2F{{bat_team}}.jpg?alt=media&token={{bat_token}}" height="300px" width="300px">
+            </div>
+            <div class="col-md-2 col-xs-8 d-flex justify-content-center mt-5 mb-5">
+            <span class="badge badge-fill badge-info"><h1>{{total1}} to {{total2}}</h1></span>
+            </div>
+            <div class="col-3 col-xs-8 d-flex justify-content-center">
+            <img src="https://firebasestorage.googleapis.com/v0/b/predict-meter.appspot.com/o/images%2Fipl%2F{{bowl_team}}.jpg?alt=media&token={{bowl_token}}" height="300px" width="300px">
+            </div>
+        </div>
+        <div class="row d-flex justify-content-center mt-3">
+            <input type=button class="btn btn-secondary" value="Back To Predict" onClick="javascript:history.go(-1);">
+        </div>
+        <div class="row d-flex justify-content-center mt-3">
+            <button type="submit" class="btn"><a href="home">Home</a></button>
+        </div>
+        {% else %}
+        <div class="row-content col-12 d-flex justify-content-center">
+        <form action="predict" method="POST" class="center-align">
+        {% csrf_token %}
+        <div class="form-row d-flex justify-content-center ">
+        <div class="col-5 form-group">
+          <select id="inputState" class="form-control" name="BatTeam">
+            <option selected>Batting Team</option>
+            <option>Chennai Super Kings</option> <option>Delhi Capitals</option> <option>Kings XI Punjab</option> 
+            <option>Kolkata knight Riders</option> 
+            <option>Mumbai Indians</option> <option>Rajasthan Royals</option>
+            <option>Royal Challengers Bangalore</option> <option>Sunrisers Hyderabad</option>
+          </select>
+        </div>
+          <span class="badge badge-fill"><h4>V</h4></span>
+        <div class="col-5 form-group d-flex justify-content-center">
+          <select id="inputState" class="form-control" name="BowlTeam">
+            <option selected>Bowling Team</option>
+            <option>Chennai Super Kings</option> <option>Delhi Capitals</option> <option>Kings XI Punjab</option> 
+            <option>Kolkata knight Riders</option> 
+            <option>Mumbai Indians</option> <option>Rajasthan Royals</option>
+            <option>Royal Challengers Bangalore</option> <option>Sunrisers Hyderabad</option>
+          </select>
+        </div>
+        </div>
+
+        <div class="form-row d-flex justify-content-center">
+            <div class="col-4 form-group center-align">
+                <input type="number" name="Overs" placeholder="Overs (5 - 15)">
+            </div>
+        </div>
+        <div class="form-row d-flex justify-content-center">
+            <div class="col-4 form-group center-align">
+                <input type="number" name="Runs" placeholder="Runs">
+            </div>
+        </div>
+        <div class="form-row d-flex justify-content-center">
+            <div class="col-4 form-group center-align">
+                <input type="number" name="Wickets" placeholder="Wickets">
+            </div>
+        </div>
+        <div class="form-row d-flex justify-content-center">
+            <div class="col-4 form-group center-align">
+                <input type="number" name="Runs_4over" placeholder="Runs in last 4 overs">
+            </div>
+        </div>
+        <div class="d-flex justify-content-center">
+            <button type="submit" class="btn btn-secondary">Predict Total</button>
+        </div>
+        <div class="d-flex justify-content-center mt-3">
+            <button type="submit" class="btn"><a href="home">Home</a></button>
+        </div>
+        {% for message in messages %}
+        <div class="d-flex justify-content-center mt-2">
+            <span class="badge badge-fill badge-danger"><h5>{{message}}</h5></span>
+        </div>
+        {% endfor %}
+    </form>
+    {% endif %}
+
+        
+    
+
+    </div>
+</body>
+ 
+</html>

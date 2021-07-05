@@ -1,0 +1,35 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        {% block title %}<title>{{name}}</title>{% endblock %}
+        <style>
+            body{
+                background: url({{cover}}) no-repeat center fixed; 
+                background-size:560px 720px;
+            }
+        </style>
+        <link rel="stylesheet" href="https://firebasestorage.googleapis.com/v0/b/predict-meter.appspot.com/o/css%2Fbootstrap.min.css?alt=media&token=6892f846-8b33-403a-acdf-cec41d300d47">
+    <link rel="stylesheet" href="https://firebasestorage.googleapis.com/v0/b/predict-meter.appspot.com/o/css%2Fstyle.css?alt=media&token=86b1b53c-11a3-40d0-9186-c51013a19995">
+    
+    </head>
+
+<body class="col-10">
+    {% for name in search %}
+    <div class="card info" style="width: 22rem;">
+        <ul class="list-group list-group-flush">
+          <li class="list-group-item large"><a href="https://en.wikipedia.org/wiki/{{name}}" class="unstyled">{{name}}</a>
+            {% if name.currentRole %}
+            <span class="small"> ({{name.currentRole}})</span>
+            {% endif %}
+        </li>
+        </ul>
+    </div>
+    {% endfor %}
+
+    
+
+    <a href="back"><button type="button" class="btn">Home</button></a>
+</body>
+</html>

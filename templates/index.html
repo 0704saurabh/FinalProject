@@ -1,0 +1,112 @@
+{% load static %}
+{% static "images" as baseUrl %}
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Predict-Meter &mdash; Get Info</title>
+    <meta charset="utf-8">
+    <meta content='width=device-width, initial-scale=1' name='viewport'/>
+
+    <link rel="stylesheet" href="https://firebasestorage.googleapis.com/v0/b/predict-meter.appspot.com/o/css%2Fbootstrap.min.css?alt=media&token=6892f846-8b33-403a-acdf-cec41d300d47">
+    <link rel="stylesheet" href="https://firebasestorage.googleapis.com/v0/b/predict-meter.appspot.com/o/css%2Fstyle.css?alt=media&token=86b1b53c-11a3-40d0-9186-c51013a19995">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-social/5.1.1/bootstrap-social.min.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+
+  </head>
+  <body>
+  
+  <div>
+
+    <div class="site-mobile-menu">
+      <div class="site-mobile-menu-header">
+        <div class="site-mobile-menu-close mt-3">
+          <span class="icon-close2 js-menu-toggle"></span>
+        </div>
+      </div>
+      <div class="site-mobile-menu-body"></div>
+    </div>
+    
+    <header class="site-navbar py-1 breadcrumb" role="banner">
+
+      <div class="container">
+        <div class="row align-items-center">
+          
+          <div class="col- col-xl-4">
+            <h1 class="col-12"><a href="#" class="text-black h2 mb-0">Predict-Meter</a></h1>
+          </div>
+          
+
+        </div>
+      </div>
+      
+    </header>
+
+<div class="container">
+  <div class="row">
+  <div class="mt-4 col-md-6 col-xs-8 d-flex justify-content-center">
+    <div class="card-group">
+      <div class="card">
+        <img class="card-img-top" src="https://firebasestorage.googleapis.com/v0/b/predict-meter.appspot.com/o/images%2Fhome%2Fmovie.jpg?alt=media&token=99a221d4-27c1-4fc9-840a-96dd9bc99ddc" alt="Card image cap" height="300px" width="150px">
+        <div class="card-body">
+          <h5 class="card-title">Movie</h5>
+          <form action="accounts/movie_info" method="POST">
+            {% csrf_token %}
+            <input type="text" name="movie_name" placeholder="Series name">
+            <input type="submit"></li>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="mt-4 col-md-6 col-xs-8 d-flex justify-content-center">
+    <div class="card-group">
+      <div class="card">
+        <img class="card-img-top" src="https://firebasestorage.googleapis.com/v0/b/predict-meter.appspot.com/o/images%2Fhome%2Flaliga.jpg?alt=media&token=774c83ee-4b91-49ae-8361-0f28a9648828" alt="Card image cap" height="300px" width="150px">
+        <div class="card-body">
+          <h5 class="card-title">La Liga</h5>
+            <a href="laliga"><button type="submit" class="btn btn-primary">Predict LaLiga Score</button></a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="mt-4 col-md-6 col-xs-8 d-flex justify-content-center">
+      <div class="card-group">
+        <div class="card">
+          <img class="card-img-top" src="https://firebasestorage.googleapis.com/v0/b/predict-meter.appspot.com/o/images%2Fhome%2Fipl.jpg?alt=media&token=6498bb5a-0973-465b-bac9-4b8016020d87" alt="Card image cap" height="300px" width="150px">
+          <div class="card-body">
+            <h5 class="card-title">IPL</h5>
+              <a href="ipl"><button type="submit" class="btn btn-primary">Predict IPL Score</button></a>
+          </div>
+        </div>
+      </div>
+  </div>
+  </div>
+</div>
+
+    
+    <footer class="mt-4 site-footer blue">
+      <div class="container">
+        <div class="row d-flex justify-content-center text-white">
+
+          <a href="https://www.facebook.com/pramit.kumar.587/" class="btn btn-social-icon btn-lg btn-fb" type="button" role="button"><i class="fa fa-facebook"></i></a>
+
+          <a href="mailto:parmitkumarpkr@gmail.com" class="btn btn-social-icon btn-lg btn-email" type="button" role="button"><i class="fa fa-envelope"></i></a>
+
+          <a href="https://www.linkedin.com/in/pramit-kumar-955471152/" class="btn btn-social-icon btn-lg btn-li" type="button" role="button"><i class="fa fa-linkedin"></i></a>
+
+          <a href="https://www.instagram.com/pramit.kr/" class="btn btn-social-icon btn-lg btn-ins" type="button" role="button"><i class="fa fa-instagram"></i></a>
+
+          <a href="https://github.com/pramittt" class="btn btn-social-icon btn-lg btn-git" type="button" role="button"><i class="fa fa-github"></i></a>
+
+        </div>
+      </div>
+    </footer>
+
+  
+  <script src="https://firebasestorage.googleapis.com/v0/b/predict-meter.appspot.com/o/js%2Fbootstrap.min.js?alt=media&token=26b3b746-57d7-46af-bb33-617bad94b6fd"></script>
+  <script src="https://firebasestorage.googleapis.com/v0/b/predict-meter.appspot.com/o/js%2Fmain.js?alt=media&token=6a164588-163d-4554-940a-f6faf4448887"></script>
+    
+  </body>
+</html>
